@@ -1,0 +1,32 @@
+{
+  "name": "git-walker",
+  "version": "1.0.0",
+  "description": "Fast, light-weight, streaming, optionally recursive git tree walker",
+  "main": "lib/walker.js",
+  "scripts": {
+    "test": "mocha --reporter=spec test/*-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/indutny/git-walker.git"
+  },
+  "keywords": [
+    "git",
+    "walk",
+    "stream",
+    "recursive",
+    "submodule",
+    "tree",
+    "blob",
+    "commit"
+  ],
+  "author": "Fedor Indutny <fedor@indutny.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/indutny/git-walker/issues"
+  },
+  "homepage": "https://github.com/indutny/git-walker#readme",
+  "devDependencies": {
+    "mocha": "^2.5.3"
+  }
+}
