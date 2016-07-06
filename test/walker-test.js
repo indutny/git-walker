@@ -73,12 +73,14 @@ describe('git-walker', () => {
 
     const hashes = [];
     const headers = [];
+    const types = [];
     const bodies = {};
     const stream = walker.visit('de4190e');
 
     stream.on('data', (object) => {
       hashes.push(object.hash);
       headers.push(object.header);
+      types.push(object.type);
 
       bodies[object.hash] = object.body;
     });
@@ -92,6 +94,17 @@ describe('git-walker', () => {
         'blob 723',
         'tree 42',
         'blob 380'
+      ]);
+
+      assert.deepEqual(types, [
+        'commit',
+        'tree',
+        'blob',
+        'tree',
+        'blob',
+        'blob',
+        'tree',
+        'blob'
       ]);
 
       let chunks = '';
