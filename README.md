@@ -1,6 +1,6 @@
 # git-walker
 [![NPM version](https://badge.fury.io/js/git-walker.svg)](http://badge.fury.io/js/git-walker)
-[![Build Status](https://secure.travis-ci.org/indutny/gyp.js.svg)](http://travis-ci.org/indutny/gyp.js)
+[![Build Status](https://secure.travis-ci.org/indutny/git-walker.svg)](http://travis-ci.org/indutny/git-walker)
 
 ## Why?
 
