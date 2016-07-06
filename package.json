@@ -4,7 +4,9 @@
   "description": "Fast, light-weight, streaming, optionally recursive git tree walker",
   "main": "lib/walker.js",
   "scripts": {
-    "test": "mocha --reporter=spec test/*-test.js"
+    "lint": "make lint",
+    "format": "make format",
+    "test": "mocha --reporter=spec test/*-test.js && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
   },
   "homepage": "https://github.com/indutny/git-walker#readme",
   "devDependencies": {
+    "eslint": "^3.0.1",
     "mocha": "^2.5.3"
   },
   "dependencies": {
