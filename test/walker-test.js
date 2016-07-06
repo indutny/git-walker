@@ -68,6 +68,17 @@ describe('git-walker', () => {
       });
     });
 
+    it('should resolve `objects/...` ref as it is', (cb) => {
+      walker.resolveRef(
+        'objects/ed/4eebe254f6f41600daf2c6d05b768372dea3f4',
+        (err, hash) => {
+          assert(!err);
+          assert.equal(hash, 'ed4eebe254f6f41600daf2c6d05b768372dea3f4');
+          cb(null);
+        }
+      );
+    });
+
     it('should not find invalid ref', (cb) => {
       walker.resolveRef('dead', (err, hash) => {
         assert(err);
