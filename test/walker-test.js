@@ -22,7 +22,7 @@ describe('git-walker', () => {
 
     it('should not find invalid commit', (cb) => {
       walker.resolveObject('dead', (err, hash) => {
-        assert(/Object not found/.test(err.message));
+        assert(err);
         assert(!hash);
         cb();
       });
