@@ -28,5 +28,8 @@
   "homepage": "https://github.com/indutny/git-walker#readme",
   "devDependencies": {
     "mocha": "^2.5.3"
+  },
+  "dependencies": {
+    "async": "^2.0.0-rc.6"
   }
 }
