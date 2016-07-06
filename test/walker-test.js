@@ -79,12 +79,18 @@ describe('git-walker', () => {
   it('should walk this tree', (cb) => {
     const walker = new Walker(path.join(__dirname, '..'));
 
+    const hashes = [];
     const headers = [];
-    const stream = walker.visit('de4190e', (header, body) => {
-      headers.push(header);
-    }, (err) => {
-      // TODO(indutny): check bodies
-      assert(!err);
+    const bodies = {};
+    const stream = walker.visit('de4190e');
+
+    stream.on('data', (object) => {
+      hashes.push(object.hash);
+      headers.push(object.header);
+
+      bodies[object.hash] = object.body;
+    });
+    stream.on('end', () => {
       assert.deepEqual(headers, [
         'commit 174',
         'tree 139',
@@ -95,7 +101,14 @@ describe('git-walker', () => {
         'tree 42',
         'blob 380'
       ]);
-      cb();
+
+      let chunks = '';
+      const ignore = bodies['1ca957177f035203810612d1d93a66b08caff296'];
+      ignore.on('data', chunk => chunks += chunk);
+      ignore.on('end', () => {
+        assert.equal(chunks, 'node_modules/\nnpm-debug.log\n');
+        cb();
+      });
     });
   });
 });
