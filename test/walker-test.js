@@ -48,26 +48,6 @@ describe('git-walker', () => {
       });
     });
 
-    it('should find `master`', (cb) => {
-      walker.resolveRef('master', (err, hash) => {
-        if (err)
-          return cb(err);
-
-        assert(/^[a-z0-9]{40}$/.test(hash));
-        cb();
-      });
-    });
-
-    it('should find `refs/heads/master`', (cb) => {
-      walker.resolveRef('refs/heads/master', (err, hash) => {
-        if (err)
-          return cb(err);
-
-        assert(/^[a-z0-9]{40}$/.test(hash));
-        cb();
-      });
-    });
-
     it('should resolve `objects/...` ref as it is', (cb) => {
       walker.resolveRef(
         'objects/ed/4eebe254f6f41600daf2c6d05b768372dea3f4',
