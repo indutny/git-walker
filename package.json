@@ -1,6 +1,6 @@
 {
   "name": "git-walker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Fast, light-weight, streaming, optionally recursive git tree walker",
   "main": "lib/walker.js",
   "scripts": {
